@@ -1,0 +1,4 @@
+#Tue Mar 19 20:31:40 CDT 2019
+base.0=/Users/linmaliakal/Desktop/Host-It/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex
