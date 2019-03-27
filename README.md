@@ -64,27 +64,27 @@ Clicking on the guest list button will take the user to a page that separates th
 <dt> Software Interfaces </dt>
 <dd> The mobile application interacts with the OS to allow for the use of Notifications. It communicates with the GPS application to get event location and with the database to read and change event and account data. </dd>
 <dt> Communications Interfaces </dt>
-<dd> The messaging feature of our application would need to use some sort of interface, most likely taken from an API, to communicate with others in events through the application. </dd>
+<dd> The messaging feature of our application would need to use some sort of interface, most likely taken from an API, to communicate with others in events through the application. There will also be an interface where one can get a text message when invited to an event if they do not have the app actually installed yet. </dd>
 </dl>
 
 ### 4. System Features <a name="system-features"> </a>
 <dl>
 <dt> System Feature 1: Login/Sign Up</dt>
-<dd> 4.1.1	Description and Priority<br>
+<dd> __4.1.1:	Description and Priority__<br>
 The signup page will allow users to create a user for themselves and then they can use the information they provided to log back into that same account. This is a high priority item due to it being the basis of accessing other pages within the app <br>
-4.1.2	Stimulus/Response Sequences<br>
+__4.1.2:	Stimulus/Response Sequences__<br>
 The user will sign up creating a user with a username and password and that will lead them to their dashboard that shows them their event details and events they are a part of. They can then use that login information in the login page to log back in and access that same data. <br>
-4.1.3	Functional Requirements <br>
+__4.1.3:	Functional Requirements__ <br>
 REQ-1: Allow the application user to create an account with a required username and password<br>
 REQ-2: Only users that already exists or have been created should be allowed to make it past the sign-up and login pages to their dashboard
 </dd>
 <dt> System Feature 2: Home Page </dt>
 <dd> The home page will serve as the main hub of all things regarding the app with the overviews of everything made accessible to the user <br>
-4.2.1	Description and Priority <br>
+__4.2.1:	Description and Priority__ <br>
 The home page will serve as the central location/dashboard that will be unique to each user and will include all things related to their profile such as invites, tasks, events, and more. This is a high priority item that will serve as the landing page for all users. <br>
-4.2.2	Stimulus/Response Sequences<br>
+__4.2.2:	Stimulus/Response Sequences__<br>
 The user can use taps to navigate and swipes to scroll through the homepage that links to other pages.<br>
-4.2.3	Functional Requirements<br>
+__4.2.3:	Functional Requirements__<br>
 REQ-1: The user can access an “events this week” feed that shows the events they have been invited to, <br>
 REQ-2: The user can access a “news alert” feed that allows them to get alerts on new postings and invites on events <br>
 REQ-3: The homepage is the landing page that the user will be lead to after successful sign in. <br>
@@ -92,11 +92,11 @@ REQ-4: The homepage will be unique and individualized to each user <br>
 </dd>
 <dt> System Feature 3: People Page</dt>
 <dd> The page focusing on people will include invites and contacts.<br>
-4.4.1:	Description and Priority<br>
+__4.4.1:	Description and Priority__<br>
   A section of the application will include working with the existing users. There will options available to all users to add invites and contacts. This page is medium priority in comparison to the other features but still important in order to personalize the application.<br>
-4.4.2:	Stimulus/Response Sequences<br>
+__4.4.2:	Stimulus/Response Sequences__<br>
   The user can use taps to navigate to separate portions of the people page <br>
-4.4.3:	Functional Requirements <br>
+__4.4.3:	Functional Requirements__ <br>
   REQ-1: The user can access different lists that shows a list of people that they can invite or add to specific events <br>
   REQ-2: The user can access available information about users such as phone number <br>
   REQ-3: The user can delegate tasks to available people <br>
@@ -126,19 +126,19 @@ REQ-4: The homepage will be unique and individualized to each user <br>
 All requirements have been previously covered in this document.
 
 ### Appendix A: Glossary
-API - acronym for application programming interface; a set of methods allowing an application to access the features or data of an operating system, application, or other service.
+__API__ - acronym for application programming interface; a set of methods allowing an application to access the features or data of an operating system, application, or other service.
 
-Event - object created by a user that includes, but is not limited to, variables such as the time, the place, and the invitation list.
+__Event__ - object created by a user that includes, but is not limited to, variables such as the time, the place, and the invitation list.
 
-Events Page - This page is where the user’s list of events is contained, ordered by date of occurence.
+__Events Page__ - This page is where the user’s list of events is contained, ordered by date of occurence.
 
-Home Page - This page is what is first seen after log in, and contains upcoming events and any alerts for the user.
+__Home Page__ - This page is what is first seen after log in, and contains upcoming events and any alerts for the user.
 
-Mobile Application - a software application designed for use on a mobile device, such as a cellphone or a tablet.
+__Mobile Application__ - a software application designed for use on a mobile device, such as a cellphone or a tablet.
 
-People Page - This page is where the user can find notifications for invitations and messages, as well as view his or her contact list.
+__People Page__ - This page is where the user can find notifications for invitations and messages, as well as view his or her contact list.
 
-REQ - acronym for requirement.
+__REQ__ - acronym for requirement.
 
 ### Appendix B: Analysis Models
 UML Diagram:
