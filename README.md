@@ -1,5 +1,9 @@
 # Host-It
 Final Project for 330 Software Engineering
+<br> <br>
+[Project Proposal](https://docs.google.com/document/d/1B1j3uAakMvVkk_gpCVfzmqgGeecr8w3iG_uVXuIH5Xw/edit "Open Google Doc")
+<br>
+[Original Software Requirements Report](https://docs.google.com/document/d/1-kEkb2ZCvJvYeIbxUi5uyMOFOTTiTnIZDThce5lOdiA/edit?usp=sharing "Open Google Doc")
 ___
 
 ## Software Requirements
