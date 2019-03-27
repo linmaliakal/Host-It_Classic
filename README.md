@@ -92,15 +92,15 @@ REQ-4: The homepage will be unique and individualized to each user <br>
 </dd>
 <dt> System Feature 3: People Page</dt>
 <dd> The page focusing on people will include invites and contacts.<br>
-4.4.1	Description and Priority<br>
-A section of the application will include working with the existing users. There will options available to all users to add invites and contacts. This page is medium priority in comparison to the other features but still important in order to personalize the application.<br>
-4.4.2	Stimulus/Response Sequences<br>
-The user can use taps to navigate to separate portions of the people page <br>
-4.4.3	Functional Requirements <br>
-REQ-1: The user can access different lists that shows a list of people that they can invite or add to specific events <br>
-REQ-2: The user can access available information about users such as phone number <br>
-REQ-3: The user can delegate tasks to available people <br>
-REQ-4: The user can sort people on invite list based on the hosting part, the attending party, and the interested party. <br>     
+4.4.1:	Description and Priority<br>
+  A section of the application will include working with the existing users. There will options available to all users to add invites and contacts. This page is medium priority in comparison to the other features but still important in order to personalize the application.<br>
+4.4.2:	Stimulus/Response Sequences<br>
+  The user can use taps to navigate to separate portions of the people page <br>
+4.4.3:	Functional Requirements <br>
+  REQ-1: The user can access different lists that shows a list of people that they can invite or add to specific events <br>
+  REQ-2: The user can access available information about users such as phone number <br>
+  REQ-3: The user can delegate tasks to available people <br>
+  REQ-4: The user can sort people on invite list based on the hosting part, the attending party, and the interested party. <br>     
 </dd>
 </dl>
 
@@ -143,4 +143,4 @@ REQ - acronym for requirement.
 ### Appendix B: Analysis Models
 UML Diagram:
 
-![Alt text](www/img/)
+![Alt text](www/img/UML.png)
