@@ -5,17 +5,15 @@ Final Project for 330 Software Engineering
 <br>
 [Original Software Requirements Report](https://docs.google.com/document/d/1-kEkb2ZCvJvYeIbxUi5uyMOFOTTiTnIZDThce5lOdiA/edit?usp=sharing "Open Google Doc")
 ___
----
 # Table of Contents
-1. [Introduction](#introduction)
+1. [Introduction](#intro)
 2. [Overall Description](#overall-description)
 3. [External Interface Requirements](#external-interface-requirements)
 4. [System Features](#system-features)
 5. [Other Nonfunctional Requirements](#other-nonfunctional-requirements)
 6. [Other Requirements](#other-requirements)
----
 ## Software Requirements
-### 1. Introduction
+### 1. Introduction <a name="intro"> </a>
 <dl>
 <dt> Purpose </dt>
 <dd> This product is a mobile application. The application is intended to provide the necessary organizational tools to help plan an event efficiently. Features include a login page, an event manager page, event pages, invitation lists, task lists, and a messaging system featuring posts. This project will be a learning experience in cordova and mobile application development. </dd>
@@ -31,7 +29,7 @@ ___
 <dd> This document may make references to the google API in implementing the google maps API. </dd>
 </dl>
 
-### 2. Overall Description
+### 2. Overall Description <a name="overall-description"> </a>
 <dl>
 <dt> Product Description </dt>
 <dd> The idea, as described, was originated from personal experiences with planning and preparing for hosted events. With this product, we hope to take on the functionality of creating events on Facebook and make a better mobile way to do so and keep track of components of such events. With the transition from Facebook to other social media sites, we hope this application works as a more receptive replacement for the events function of Facebook.  </dd>
@@ -51,7 +49,7 @@ ___
 <dd> Paragraph </dd>
 </dl>
 
-### 3. External Interface Requirements
+### 3. External Interface Requirements <a name="external-interface-requirements"> </a>
 <dl>
 <dt> User Interfaces </dt>
 <dd> Upon opening the app, users who are not currently signed in to an account are shown a login screen that allows the user to either sign in to their account or create a new account. When the user clicks on the login button, they are redirected to a login page which prompts them to enter their username and password, and gives them an option to sign in with their Google account. If the user instead clicks the create an account button, they are taken to a form that asks for the required information needed to create an account. After creating their account, the user is automatically logged in.
@@ -68,13 +66,13 @@ Clicking on the guest list button will take the user to a page that separates th
 <dt> Communications Interfaces </dt>
 <dd> </dd>
 </dl>
-### 4. System Features
+### 4. System Features <a name="system-features"> </a>
 <dl>
 <dt> System Feature 1 </dt>
 <dd> </dd>
 </dl>
 
-### 5. Other Nonfunctional Requirements
+### 5. Other Nonfunctional Requirements <a name="other-nonfunctional-requirements"> </a>
 <dl>
 <dt> Performance Requirements </dt>
 <dd> There are no specific, real-time performance requirements for our application. </dd>
@@ -89,7 +87,7 @@ Clicking on the guest list button will take the user to a page that separates th
 <dd> </dd>
 </dl>
 
-### 6. Other Requirements
+### 6. Other Requirements <a name="other-Requirements"> </a>
 
 ### Appendix A: Glossary
 ### Appendix B: Analysis Models
