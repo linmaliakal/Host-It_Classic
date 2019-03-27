@@ -5,7 +5,15 @@ Final Project for 330 Software Engineering
 <br>
 [Original Software Requirements Report](https://docs.google.com/document/d/1-kEkb2ZCvJvYeIbxUi5uyMOFOTTiTnIZDThce5lOdiA/edit?usp=sharing "Open Google Doc")
 ___
-
+---
+# Table of Contents
+1. [Introduction](#introduction)
+2. [Overall Description](#overall-description)
+3. [External Interface Requirements](#external-interface-requirements)
+4. [System Features](#system-features)
+5. [Other Nonfunctional Requirements](#other-nonfunctional-requirements)
+6. [Other Requirements](#other-requirements)
+---
 ## Software Requirements
 ### 1. Introduction
 <dl>
