@@ -2,7 +2,7 @@
 
 platform :ios, '9.0'
 
-target 'TestApp' do
-	project 'TestApp.xcodeproj'
+target 'Workshop' do
+	project 'Workshop.xcodeproj'
 
 end
