@@ -1,110 +1,104 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <link href="assets/ratchet/css/ratchet.css" rel="stylesheet">
-    <link href="assets/css/styles.css" rel="stylesheet">
-</head>
-<body>
-  <script id="home-tpl" type="text/template">
-    <header class="bar bar-nav">
-        <h1 class="title">Directory</h1>
-    </header>
-    <div class="bar bar-standard bar-header-secondary">
-        <input class='search-key' type="search"/>
-    </div>
-    <div class="content"></div>
-``</script>
-  <script id="employee-list-tpl" type="text/template">
-    <ul class="table-view">
-        {{#each this}}
-        <li class="table-view-cell media">
-          <a href="#employees/{{ id }}">
-              <img class="media-object pull-left" src="assets/pics/{{pic}}">
-              <div class="media-body">
-                  {{firstName}} {{lastName}}
-                  <p>{{title}}</p>
-              </div>
-          </a>
-        </li>
-        {{/each}}
-    </ul>
-  </script>
-  <script id="employee-tpl" type="text/template">
-      <header class="bar bar-nav">
-          <a class="btn btn-link btn-nav pull-left" href="#">
-              <span class="icon icon-left-nav"></span>
-          </a>
-          <h1 class="title">Employee</h1>
-      </header>
-      <div class="content">
-          <div class="card">
-              <ul class="table-view">
-                  <li class="table-view-cell media">
-                      <img class="media-object pull-left emp-pic" src="assets/pics/{{pic}}">
-                      <div class="media-body">
-                          {{ firstName }} {{ lastName }}
-                          <p>{{ title }}</p>
-                      </div>
-                  </li>
-                  <li class="table-view-cell media">
-                      <a href="tel:{{ officePhone }}" class="push-right">
-                          <span class="media-object pull-left icon icon-call"></span>
-                          <div class="media-body">
-                              Call Office
-                              <p>{{ officePhone }}</p>
-                          </div>
-                      </a>
-                  </li>
-                  <li class="table-view-cell media">
-                      <a href="tel:{{ cellPhone }}" class="push-right">
-                          <span class="media-object pull-left icon icon-call"></span>
-                          <div class="media-body">
-                              Call Cell
-                              <p>{{ cellPhone }}</p>
-                          </div>
-                      </a>
-                  </li>
-                  <li class="table-view-cell media">
-                      <a href="sms:{{ cellPhone }}" class="push-right">
-                          <span class="media-object pull-left icon icon-sms"></span>
-                          <div class="media-body">
-                              SMS
-                              <p>{{ cellPhone }}</p>
-                          </div>
-                      </a>
-                  </li>
-                  <li class="table-view-cell media">
-                      <a href="mailto:{{ email }}" class="push-right">
-                          <span class="media-object pull-left icon icon-mail"></span>
-                          <div class="media-body">
-                              Email
-                              <p>{{ email }}</p>
-                          </div>
-                      </a>
-                  </li>
-                  <li class="table-view-cell media">
-                    <a hre="#" class="push-right add-contact-btn">
-                      <span class="media-object pull-left"></span>
-                      <div class="media-body">
-                        Add to contacts
-                      </div>
-                    </a>
-                  </li>
-              </ul>
-          </div>
-      </div>
-  </script>
-<script src="lib/handlebars.js"></script>
-<script src="lib/jquery.js"></script>
-<script src="lib/router.js"></script>
-<script src="js/services/memory/EmployeeService.js"></script>
-<script src="lib/fastclick.js"></script>
-<script src="js/EmployeeListView.js"></script>
-<script src="js/HomeView.js"></script>
-<script src="js/EmployeeView.js"></script>
-<script src="js/app.js"></script>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
 
-</body>
-</html>
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <link rel="stylesheet" src="css/index.css">
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <script src="js/index.js"></script>
+  </head>
+  <ons-page>
+    <ons-toolbar>
+      <div class="center">Meal Me</div>
+    </ons-toolbar>
+
+    <ons-tabbar swipeable position="auto">
+      <ons-tab page="tab1.html" label="Lists" icon="ion-home, material:md-home" badge="7" active>
+      </ons-tab>
+      <ons-tab page="tab2.html" label="Fridge" icon="md-pizza">
+      </ons-tab>
+      <ons-tab page="tab3.html" label="Recipes" icon="md-book">
+      </ons-tab>
+    </ons-tabbar>
+  </ons-page>
+
+  <template id="tab1.html">
+    <ons-page id="Tab1">
+      <p style="text-align: center;">
+        This is the lists page.
+      </p>
+      <div class="container">
+          <p>
+            <label for="new-task">Add Item</label><input id="new-task" type="text"><button>Add</button>
+          </p>
+
+          <h3>Todo</h3>
+          <ul id="incomplete-tasks">
+<!--            <li><input type="checkbox"><label>Pay Bills</label><input type="text"><button class="edit">Edit</button><button class="delete">Delete</button></li>
+            <li class="editMode"><input type="checkbox"><label>Go Shopping</label><input type="text" value="Go Shopping"><button class="edit">Edit</button><button class="delete">Delete</button></li>
+-->
+          </ul>
+
+          <h3>Completed</h3>
+          <ul id="completed-tasks">
+            <!--<li><input type="checkbox" checked><label>See the Doctor</label><input type="text"><button class="edit">Edit</button><button class="delete">Delete</button></li>-->
+          </ul>
+        </div>
+    </ons-page>
+  </template>
+
+  <template id="tab2.html">
+    <ons-page id="Tab2">
+      <p style="text-align: center;">
+        This is the fridge page.
+      </p>
+      <div>
+      <script>
+    (function() {
+      var cx = '005670356024449457610:kuvrfme2md4';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script></div>
+  <gcse:search></gcse:search>
+    </ons-page>
+  </template>
+  <template id="tab3.html">
+    <ons-page id="Tab3">
+      <p style="text-align: center;">
+        This is the recipes page.
+      </p>
+    </ons-page>
+  </template>
+  </html>
