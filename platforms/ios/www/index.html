@@ -33,18 +33,19 @@
     <link rel="stylesheet" src="css/index.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/button.js"></script>
   </head>
   <ons-page>
     <ons-toolbar>
-      <div class="center">Meal Me</div>
+      <div class="center">Host It</div>
     </ons-toolbar>
 
     <ons-tabbar swipeable position="auto">
-      <ons-tab page="tab1.html" label="Lists" icon="ion-home, material:md-home" badge="7" active>
+      <ons-tab page="tab1.html" label="Home" icon="ion-home, material:md-home" active>
       </ons-tab>
-      <ons-tab page="tab2.html" label="Fridge" icon="md-pizza">
+      <ons-tab page="tab2.html" label="Event" icon="md-book">
       </ons-tab>
-      <ons-tab page="tab3.html" label="Recipes" icon="md-book">
+      <ons-tab page="tab3.html" label="People" icon="md-face">
       </ons-tab>
     </ons-tabbar>
   </ons-page>
@@ -52,53 +53,46 @@
   <template id="tab1.html">
     <ons-page id="Tab1">
       <p style="text-align: center;">
-        This is the lists page.
+        This is the home page.
       </p>
-      <div class="container">
-          <p>
-            <label for="new-task">Add Item</label><input id="new-task" type="text"><button>Add</button>
-          </p>
-
-          <h3>Todo</h3>
-          <ul id="incomplete-tasks">
-<!--            <li><input type="checkbox"><label>Pay Bills</label><input type="text"><button class="edit">Edit</button><button class="delete">Delete</button></li>
-            <li class="editMode"><input type="checkbox"><label>Go Shopping</label><input type="text" value="Go Shopping"><button class="edit">Edit</button><button class="delete">Delete</button></li>
--->
-          </ul>
-
-          <h3>Completed</h3>
-          <ul id="completed-tasks">
-            <!--<li><input type="checkbox" checked><label>See the Doctor</label><input type="text"><button class="edit">Edit</button><button class="delete">Delete</button></li>-->
-          </ul>
-        </div>
     </ons-page>
   </template>
 
   <template id="tab2.html">
     <ons-page id="Tab2">
       <p style="text-align: center;">
-        This is the fridge page.
+        This is the events page.
       </p>
-      <div>
-      <script>
-    (function() {
-      var cx = '005670356024449457610:kuvrfme2md4';
-      var gcse = document.createElement('script');
-      gcse.type = 'text/javascript';
-      gcse.async = true;
-      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(gcse, s);
-    })();
-  </script></div>
-  <gcse:search></gcse:search>
+      <ons-fab id="push-button" position="bottom right">
+        <ons-icon icon="md-plus"></ons-icon>
+      </ons-fab>
     </ons-page>
   </template>
   <template id="tab3.html">
     <ons-page id="Tab3">
       <p style="text-align: center;">
-        This is the recipes page.
+        This is the people page.
       </p>
     </ons-page>
   </template>
-  </html>
+  <template id="event_instance.html">
+    <ons-page id="Event_Instance">
+      <p style="text-align: center;">
+        The event instance page/page to make an event.
+      </p>
+    </ons-page>
+  </template>
+  <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCwugfElNQ7I_9t1vXqxXXLSHoS3medxLU",
+      authDomain: "heller-26a27.firebaseapp.com",
+      databaseURL: "https://heller-26a27.firebaseio.com",
+      projectId: "heller-26a27",
+      storageBucket: "heller-26a27.appspot.com",
+      messagingSenderId: "298113665685"
+    };
+    firebase.initializeApp(config);
+  </script>
+</html>
