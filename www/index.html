@@ -33,7 +33,6 @@
     <link rel="stylesheet" src="css/index.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
     <script src="js/index.js"></script>
-    <script src="js/button.js"></script>
   </head>
   <ons-page>
     <ons-toolbar>
@@ -61,9 +60,23 @@
   <template id="tab2.html">
     <ons-page id="Tab2">
       <script src="js/checklist.js"></script>
-      <p style="text-align: center;">
-        This is the events page.
+      <script src="js/button.js"></script>
+      <div style="text-align: right; margin-right: 10px;">
+      <p>
+        <ons-input modifier="underbar" type="text" placeholder="Title of Event" float> </ons-input>
       </p>
+      </div>
+      <div style="text-align: left; margin-left: 10px;">
+        <p>
+          <ons-input modifier="underbar" type="text" placeholder="Location/Address" float> </ons-input>
+        </p>
+        <p>
+          <ons-input modifier="underbar" type="datetime-local" float> </ons-input>
+        </p>
+        <p>
+          <ons-input modifier="underbar" type="text" placeholder="# People Invited" float> </ons-input>
+        </p>
+      </div>
       <p>
         <label for="new-task">Add Item</label><input id="new-task" type="text"><button>Add</button>
       </p>
@@ -86,9 +99,6 @@
   </template>
   <template id="tab3.html">
     <ons-page id="Tab3">
-      <p style="text-align: center;">
-        This is the people page.
-      </p>
     </ons-page>
   </template>
   <template id="event_instance.html">
