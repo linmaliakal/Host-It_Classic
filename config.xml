@@ -27,4 +27,10 @@
     <plugin name="cordova-plugin-console" spec="^1.1.0" />
     <plugin name="cordova-plugin-contacts" spec="^3.0.1" />
     <engine name="ios" spec="^5.0.0" />
+    <plugin name="cordova-plugin-googlemaps" spec="^2.5.3">
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAzNeltfIoB1CKtfnmWEQ4Uhua_aCQiKsY" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyAzNeltfIoB1CKtfnmWEQ4Uhua_aCQiKsY" />
+        <variable name="LOCATION_WHEN_IN_USE_DESCRIPTION" value="This app wants to get your location while this app runs only." />
+        <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="This app wants to get your location always, even this app runs in background." />
+    </plugin>
 </widget>
