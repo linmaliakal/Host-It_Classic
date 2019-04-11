@@ -33,6 +33,7 @@
     <link rel="stylesheet" src="css/index.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/invitelist.js"></script>
   </head>
   <ons-page>
     <ons-toolbar>
@@ -61,6 +62,7 @@
     <ons-page id="Tab2">
       <script src="js/checklist.js"></script>
       <script src="js/button.js"></script>
+    
       <div style="text-align: right; margin-right: 10px;">
       <p>
         <ons-input modifier="underbar" type="text" placeholder="Title of Event" float> </ons-input>
@@ -71,14 +73,19 @@
           <ons-input modifier="underbar" type="text" placeholder="Location/Address" float> </ons-input>
         </p>
         <p>
-          <ons-input modifier="underbar" type="datetime-local" float> </ons-input>
+          <ons-input modifier="underbar" type="date" float> </ons-input>
         </p>
         <p>
           <ons-input modifier="underbar" type="text" placeholder="# People Invited" float> </ons-input>
         </p>
       </div>
+      <h3>Invite List</h3>
+      <!--Invite list-->
+      
+      
+      <h3>Task Lists</h3>
       <p>
-        <label for="new-task">Add Item</label><input id="new-task" type="text"><button>Add</button>
+        <label for="new-task">Add Item</label><input id="new-task" type="text"><button id="addtask">Add</button>
       </p>
 
       <h3>Todo</h3>
