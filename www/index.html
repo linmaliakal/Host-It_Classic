@@ -33,6 +33,7 @@
     <link rel="stylesheet" src="css/index.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/login.js"></script>
   </head>
   <ons-page>
     <ons-toolbar>
@@ -57,18 +58,6 @@
       <script src="js/googleSignOut.js"></script>
       <ons-login>
         <div style="text-align: center; margin-top: 30px;">
-          <p>
-            <ons-input id="username" modifier="underbar" placeholder="Username" float></ons-input>
-          </p>
-          <p>
-            <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
-          </p>
-          <p style="margin: 15px 50px 0px;">
-            <ons-button id="signinButton" modifier="large" onclick="login()">Sign In</ons-button>
-          </p>
-          <p style="margin: 15px 50px 0px;">
-            <ons-button id="signupButton" modifier="large" onclick="signup()">Sign Up</ons-button>
-          </p>
           <p style="margin: 15px 50px 0px;">
             <ons-button id="googleButton" modifier="large" onclick="googleSignIn()">Sign In with Google</ons-button>
           </p>
