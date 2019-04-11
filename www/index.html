@@ -34,10 +34,40 @@
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
     <script src="js/index.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/googleSignIn.js"></script>
   </head>
+<ons-navigator navigation="fade" id="myNav" page="login.html" ></ons-navigator>
+<!-- LOGIN PAGE -->
+<!-- to view other pages, comment out login page code -->
+<template id="login.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="center">Host It Login</div>
+    </ons-toolbar>
+
+    <script src="js/login.js"></script>
+    <script src="js/button.js"></script>
+
+    <script src="js/googleSignOut.js"></script>
+    <ons-login>
+      <div style="text-align: center; margin-top: 30px;">
+        <p style="margin: 15px 50px 0px;">
+          <ons-button id="googleButton" modifier="large" onclick="googleSignIn()">Sign In with Google</ons-button>
+        </p>
+      </div>
+    </ons-login>
+
+  </ons-page>
+</template>
+
+  <!-- end of login page code -->
+<template id="app.html">
   <ons-page>
     <ons-toolbar>
       <div class="center">Host It</div>
+      <p style="margin: 15px 50px 0px;">
+          <ons-button id="googleOutButton" modifier="quiet" onclick="googleSignOut()">Sign Out</ons-button>
+      </p>
     </ons-toolbar>
 
     <ons-tabbar swipeable position="auto">
@@ -49,24 +79,12 @@
       </ons-tab>
     </ons-tabbar>
   </ons-page>
-
+</template>
   <template id="tab1.html">
     <ons-page id="Tab1">
-      <script src="js/login.js"></script>
-      <script src="js/button.js"></script>
-      <script src="js/googleSignIn.js"></script>
-      <script src="js/googleSignOut.js"></script>
-      <ons-login>
-        <div style="text-align: center; margin-top: 30px;">
-          <p style="margin: 15px 50px 0px;">
-            <ons-button id="googleButton" modifier="large" onclick="googleSignIn()">Sign In with Google</ons-button>
-          </p>
-          <p style="margin: 15px 50px 0px;">
-              <ons-button id="googleOutButton" modifier="quiet" onclick="googleSignOut()">Sign Out</ons-button>
-            </p>
-        </div>
-      </ons-login>
-    </ons-page>
+      <p style="text-align: center;">
+        This is where I would put my home page...IF I HAD ONE!!!
+      </p>
   </template>
 
   <template id="tab2.html">
