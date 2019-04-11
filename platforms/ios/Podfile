@@ -4,5 +4,5 @@ platform :ios, '9.0'
 
 target 'Workshop' do
 	project 'Workshop.xcodeproj'
-
+	pod 'GoogleMaps', '~> 2.7.0'
 end
