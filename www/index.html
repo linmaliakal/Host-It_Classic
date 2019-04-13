@@ -78,6 +78,7 @@
     <ons-page id="Tab2">
       <script src="js/checklist.js"></script>
       <script src="js/button.js"></script>
+      <script src="js/invitelist.js"></script>
       <div style="text-align: right; margin-right: 10px;">
       <p>
         <ons-input modifier="underbar" type="text" placeholder="Title of Event" float> </ons-input>
@@ -96,7 +97,19 @@
       </div>
       <h3>Invite List</h3>
       <!--Invite list-->
-      
+      <div id="myDIV" class="header">
+  <input type="text" id="myInput" placeholder="Enter name here!">
+  <span onclick="newElement()" class="addBtn">Add</span>
+</div>
+
+<ul id="myUL">
+<!--  <li>Hit the gym</li>
+  <li class="checked">Pay bills</li>
+  <li>Meet George</li>
+  <li>Buy eggs</li>
+  <li>Read a book</li>
+  <li>Organize office</li>-->
+</ul>
       <h3>Task Lists</h3>
       <p>
         <label for="new-task">Add Item</label><input id="new-task" type="text"><button>Add</button>
