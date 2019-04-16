@@ -36,69 +36,113 @@
   </head>
   <ons-page>
     <ons-toolbar>
-      <div class="center">Meal Me</div>
+      <div class="center">Host It</div>
     </ons-toolbar>
 
     <ons-tabbar swipeable position="auto">
-      <ons-tab page="tab1.html" label="Lists" icon="ion-home, material:md-home" badge="7" active>
+      <ons-tab page="tab1.html" label="Home" icon="ion-home, material:md-home" active>
       </ons-tab>
-      <ons-tab page="tab2.html" label="Fridge" icon="md-pizza">
+      <ons-tab page="tab2.html" label="Event" icon="md-book">
       </ons-tab>
-      <ons-tab page="tab3.html" label="Recipes" icon="md-book">
+      <ons-tab page="tab3.html" label="People" icon="md-face">
       </ons-tab>
     </ons-tabbar>
   </ons-page>
 
   <template id="tab1.html">
     <ons-page id="Tab1">
-      <p style="text-align: center;">
-        This is the lists page.
-      </p>
-      <div class="container">
+      <ons-login>
+        <div style="text-align: center; margin-top: 30px;">
           <p>
-            <label for="new-task">Add Item</label><input id="new-task" type="text"><button>Add</button>
+            <ons-input id="username" modifier="underbar" placeholder="Username" float></ons-input>
           </p>
-
-          <h3>Todo</h3>
-          <ul id="incomplete-tasks">
-<!--            <li><input type="checkbox"><label>Pay Bills</label><input type="text"><button class="edit">Edit</button><button class="delete">Delete</button></li>
-            <li class="editMode"><input type="checkbox"><label>Go Shopping</label><input type="text" value="Go Shopping"><button class="edit">Edit</button><button class="delete">Delete</button></li>
--->
-          </ul>
-
-          <h3>Completed</h3>
-          <ul id="completed-tasks">
-            <!--<li><input type="checkbox" checked><label>See the Doctor</label><input type="text"><button class="edit">Edit</button><button class="delete">Delete</button></li>-->
-          </ul>
+          <p>
+            <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
+          </p>
+          <p style="margin-top: 30px;">
+            <ons-button modifier="large" onclick="login()">Sign In</ons-button>
+          </p>
+          <p style="margin-top: 10px;">
+            <ons-button modifier="large" onclick="signup()">Sign Up</ons-button>
+          </p>
+          <p style="margin-top: 10px;">
+            <ons-button modifier="quiet" onclick="passrecovery()">forgot password?</ons-button>
+          </p>
         </div>
+      </ons-login>
     </ons-page>
   </template>
 
   <template id="tab2.html">
     <ons-page id="Tab2">
-      <p style="text-align: center;">
-        This is the fridge page.
+      <script src="js/checklist.js"></script>
+      <script src="js/button.js"></script>
+      <div style="text-align: right; margin-right: 10px;">
+      <p>
+        <ons-input modifier="underbar" type="text" placeholder="Title of Event" float> </ons-input>
       </p>
-      <div>
-      <script>
-    (function() {
-      var cx = '005670356024449457610:kuvrfme2md4';
-      var gcse = document.createElement('script');
-      gcse.type = 'text/javascript';
-      gcse.async = true;
-      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(gcse, s);
-    })();
-  </script></div>
-  <gcse:search></gcse:search>
+      </div>
+      <div style="text-align: left; margin-left: 10px;">
+        <p>
+          <ons-input modifier="underbar" type="text" placeholder="Location/Address" float> </ons-input>
+        </p>
+        <p>
+          <ons-input modifier="underbar" type="date" float> </ons-input>
+        </p>
+        <p>
+          <ons-input modifier="underbar" type="text" placeholder="# People Invited" float> </ons-input>
+        </p>
+      </div>
+      <h3>Invite List</h3>
+      <!--Invite list-->
+      <p>
+        <label for="new-task">Add invite</label><input id="new-task" type="text"><button>Add</button>
+      </p>
+      <ul id="incomplete-tasks">
+      </ul>
+      <h3>Task Lists</h3>
+      <p>
+        <label for="new-task">Add Item</label><input id="new-task" type="text"><button>Add</button>
+      </p>
+
+      <h3>Todo</h3>
+      <!--Incomplete task list-->
+      <ul id="incomplete-tasks">
+      </ul>
+
+      <h3>Completed</h3>
+      <ul id="completed-tasks">
+        <!--Completed task list-->
+      </ul>
+
+      <!-- for the FAB, to navigate to the event instance page -->
+      <ons-fab id="push-button" position="bottom right">
+        <ons-icon icon="md-plus"></ons-icon>
+      </ons-fab>
     </ons-page>
   </template>
   <template id="tab3.html">
     <ons-page id="Tab3">
+    </ons-page>
+  </template>
+  <template id="event_instance.html">
+    <ons-page id="Event_Instance">
       <p style="text-align: center;">
-        This is the recipes page.
+        The event instance page/page to make an event.
       </p>
     </ons-page>
   </template>
-  </html>
+  <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCwugfElNQ7I_9t1vXqxXXLSHoS3medxLU",
+      authDomain: "heller-26a27.firebaseapp.com",
+      databaseURL: "https://heller-26a27.firebaseio.com",
+      projectId: "heller-26a27",
+      storageBucket: "heller-26a27.appspot.com",
+      messagingSenderId: "298113665685"
+    };
+    firebase.initializeApp(config);
+  </script>
+</html>
