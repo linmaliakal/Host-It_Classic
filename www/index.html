@@ -138,6 +138,11 @@
       <ons-fab position="bottom right">
         <ons-icon icon="md-plus"></ons-icon>
       </ons-fab>
+      <script>
+        ons.getScriptPage().onInit = function() {
+          console.log('This is a lifecycle hook!', this);
+        };
+      </script>
     </ons-page>
   </template>
   <template id="tab3.html">
