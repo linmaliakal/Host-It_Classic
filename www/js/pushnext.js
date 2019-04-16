@@ -5,7 +5,7 @@ document.addEventListener('init', function(event) {
     page.querySelector('#push-button').onclick = function() {
       document.querySelector('#myNav').pushPage('event_instance.html', {data: {title: 'Event Form'}});
     };
-  } else if (page.id === 'refresh') {
+  } else if (page.id === 'Event_Instance') {
     page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
   }
 });
