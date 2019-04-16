@@ -33,6 +33,7 @@
     <link rel="stylesheet" src="css/index.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/button.js"></script>
   </head>
   <ons-page>
     <ons-toolbar>
@@ -87,6 +88,9 @@
 
   <template id="tab2.html">
     <ons-page id="Tab2">
+      <script src="js/login.js"></script>
+      <script src="js/button.js"></script>
+
       <p style="text-align: center; margin-top: 10px;">
         <ons-search-input placeholder="Find an Event" onchange="ons.notification.alert('Searched for: ' + this.value)"></ons-search-input>
       </p>
@@ -94,7 +98,6 @@
         April 2019
       </p>
       <ons-card>
-        <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/11/01/07/game-of-thrones.jpeg" style="width: 100%; opacity: 0.5;">
         <div class="title" style="text-align: right">
           GOT Watch-Party!
         </div>
