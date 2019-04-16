@@ -37,6 +37,8 @@
     <script src="js/googleSignIn.js"></script>
   </head>
 <ons-navigator navigation="fade" id="myNav" page="login.html" ></ons-navigator>
+<ons-navigator swipeable id="myNavigator" page="app.html"></ons-navigator>
+
 <!-- LOGIN PAGE -->
 <!-- to view other pages, comment out login page code -->
 <template id="login.html">
@@ -61,14 +63,17 @@
 </template>
 
   <!-- end of login page code -->
-<template id="app.html">
+  <template id="app.html">
   <ons-page>
+
     <ons-toolbar>
       <div class="center">Host It</div>
       <p style="margin: 15px 50px 0px;">
           <ons-button id="googleOutButton" modifier="default" onclick="googleSignOut()">Sign Out</ons-button>
       </p>
     </ons-toolbar>
+
+
 
     <ons-tabbar swipeable position="auto">
       <ons-tab page="tab1.html" label="Home" icon="ion-home, material:md-home" active>
@@ -79,18 +84,76 @@
       </ons-tab>
     </ons-tabbar>
   </ons-page>
-</template>
+  </template>
   <template id="tab1.html">
     <ons-page id="Tab1">
+
+    <script src="js/pushnext.js"></script>
       <p style="text-align: center;">
         This is where I would put my home page...IF I HAD ONE!!!
       </p>
+      <ons-button id="push-button">Push page</ons-button>
   </template>
 
-  <template id="tab2.html">
+<template id="tab2.html">
     <ons-page id="Tab2">
       <script src="js/checklist.js"></script>
-      <script src="js/button.js"></script>
+      <script src="js/invitelist.js"></script>
+      <div style="text-align: right; margin-right: 10px;">
+      <p>
+        <ons-input modifier="underbar" type="text" placeholder="Title of Event" float> </ons-input>
+      </p>
+      </div>
+      <div style="text-align: left; margin-left: 10px;">
+        <p>
+          <ons-input modifier="underbar" type="text" placeholder="Location/Address" float> </ons-input>
+        </p>
+        <p>
+          <ons-input modifier="underbar" type="date" float> </ons-input>
+        </p>
+        <p>
+          <ons-input modifier="underbar" type="text" placeholder="# People Invited" float> </ons-input>
+        </p>
+      </div>
+      <h3>Invite List</h3>
+      <!--Invite list-->
+      <div id="myDIV" class="header">
+            <input type="text" id="myInput" placeholder="Enter name here!">
+          <span onclick="newElement()" class="addBtn">Add</span>
+        </div>
+
+      <ul id="myUL">
+<!--  <li>Hit the gym</li>
+  <li class="checked">Pay bills</li>
+  <li>Meet George</li>
+  <li>Buy eggs</li>
+  <li>Read a book</li>
+  <li>Organize office</li>-->
+      </ul>
+      <h3>Task Lists</h3>
+      <p>
+        <label for="new-task">Add Item</label><input id="new-task" type="text"><button>Add</button>
+      </p>
+
+      <h3>Todo</h3>
+      <!--Incomplete task list-->
+      <ul id="incomplete-tasks">
+      </ul>
+
+      <h3>Completed</h3>
+      <ul id="completed-tasks">
+        <!--Completed task list-->
+      </ul>
+
+      <!-- for the FAB, to navigate to the event instance page -->
+      <ons-fab id="push-button" position="bottom right">
+        <ons-icon icon="md-plus"></ons-icon>
+      </ons-fab>
+    </ons-page>
+  </template>
+<template id="refresh.html">
+    <ons-page id="refresh">
+      <script src="js/checklist.js"></script>
       <script src="js/invitelist.js"></script>
       <div style="text-align: right; margin-right: 10px;">
       <p>
