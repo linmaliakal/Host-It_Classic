@@ -36,6 +36,7 @@
     <script src="js/login.js"></script>
     <script src="js/googleSignIn.js"></script>
     <script src="js/FABbutton.js"></script>
+    <script src="js/pushnext.js"></script>
   </head>
 <ons-navigator navigation="fade" id="myNav" page="login.html" ></ons-navigator>
 <!-- LOGIN PAGE -->
@@ -121,7 +122,8 @@
   <template id="tab2.html">
     <ons-page id="Tab2">
       <script src="js/login.js"></script>
-      <script src="js/FABbutton.js"></script>
+      <!--<script src="js/FABbutton.js"></script>  was used to test FAB functionality mainly-->
+      <script src="js/pushnext.js"></script>
 
       <p style="text-align: center; margin-top: 10px;">
         <ons-search-input placeholder="Find an Event" onchange="ons.notification.alert('Searched for: ' + this.value)"></ons-search-input>
@@ -170,7 +172,7 @@
           Friday 19 @ 7PM
         </div>
       </ons-card>
-      <ons-fab position="bottom right">
+      <ons-fab id="push-button" position="bottom right">
         <ons-icon icon="md-plus"></ons-icon>
       </ons-fab>
       <script>
