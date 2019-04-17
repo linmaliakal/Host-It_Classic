@@ -92,7 +92,7 @@
       <p style="opacity: 0.5; font-style: italic; font-size: 10px">
         ____________________________________________________________ Events This Week
       </p>
-      <ons-card>
+      <!--<ons-card>
         <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/11/01/07/game-of-thrones.jpeg" style="width: 100%; opacity: 0.5;">
         <div class="title" style="text-align: right">
           GOT Watch-Party!
@@ -100,7 +100,7 @@
         <div style="text-align: right; font-style: italic; font-size: 14px">
           Sunday 14 @ 7PM
         </div>
-      </ons-card>
+      </ons-card>-->
       <ons-card>
         <div class="title" style="text-align: right">
           A Fun Event, I Promise.
@@ -121,6 +121,69 @@
 
   <template id="tab2.html">
     <ons-page id="Tab2">
+      <script src="js/login.js"></script>
+      <!--<script src="js/FABbutton.js"></script>  was used to test FAB functionality mainly-->
+      <script src="js/pushnext.js"></script>
+
+      <p style="text-align: center; margin-top: 10px;">
+        <ons-search-input placeholder="Find an Event" onchange="ons.notification.alert('Searched for: ' + this.value)"></ons-search-input>
+      </p>
+      <p style="opacity: 0.5; font-style: italic; font-size: 10px; text-align: center">
+        April 2019
+      </p>
+      <!--<ons-card>
+        <div class="title" style="text-align: right">
+          GOT Watch-Party!
+        </div>
+        <div style="text-align: right; font-style: italic; font-size: 14px">
+          Sunday 14 @ 7PM
+        </div>
+      </ons-card>-->
+      <ons-card>
+        <div class="title" style="text-align: right">
+          A Fun Event, I Promise.
+        </div>
+        <div style="text-align: right; font-style: italic; font-size: 14px">
+          Friday 26 @ 5PM
+        </div>
+      </ons-card>
+      <p style="opacity: 0.5; font-style: italic; font-size: 10px; text-align: center">
+        May 2019
+      </p>
+      <p style="opacity: 0.5; font-style: italic; font-size: 10px; text-align: center">
+        ______________________________________________________________________________
+      </p>
+      <p style="opacity: 0.5; font-style: italic; font-size: 10px; text-align: center">
+        June 2019
+      </p>
+      <ons-card>
+        <div class="title" style="text-align: right">
+          Brunch
+        </div>
+        <div style="text-align: right; font-style: italic; font-size: 14px">
+          Saturday 15 @ 11AM
+        </div>
+      </ons-card>
+      <ons-card>
+        <div class="title" style="text-align: right">
+          The Strokes Concert
+        </div>
+        <div style="text-align: right; font-style: italic; font-size: 14px">
+          Friday 19 @ 7PM
+        </div>
+      </ons-card>
+      <ons-fab id="push-button" position="bottom right">
+        <ons-icon icon="md-plus"></ons-icon>
+      </ons-fab>
+      <script>
+        ons.getScriptPage().onInit = function() {
+          console.log('This is a lifecycle hook!', this);
+        };
+      </script>
+    </ons-page>
+  </template>
+  <template id="tab2CLONE.html">
+    <ons-page id="Tab2CLONE">
       <script src="js/login.js"></script>
       <!--<script src="js/FABbutton.js"></script>  was used to test FAB functionality mainly-->
       <script src="js/pushnext.js"></script>
@@ -192,7 +255,7 @@
   </template>
 
   <!-- Event Instance Page, fill out the form-->
-  <template id="event_instance.html">
+<template id="event_instance.html">
     <ons-page id="Event_Instance">
       <script src="js/checklist.js"></script>
       <script src="js/invitelist.js"></script>
@@ -220,16 +283,16 @@
       <div id="myDIV" class="header">
   <input type="text" id="myInput" placeholder="Enter name here!">
   <span onclick="newElement()" class="addBtn">Add</span>
-</div>
+    </div>
 
-<ul id="myUL">
+        <ul id="myUL">
 <!--  <li>Hit the gym</li>
   <li class="checked">Pay bills</li>
   <li>Meet George</li>
   <li>Buy eggs</li>
   <li>Read a book</li>
   <li>Organize office</li>-->
-</ul>
+      </ul>
       <h3>Task Lists</h3>
       <p>
         <label for="new-task">Add Item</label><input id="new-task" type="text"><button>Add</button>
@@ -244,6 +307,9 @@
       <ul id="completed-tasks">
         <!--Completed task list-->
       </ul>
+      <ons-fab id="push-button" position="bottom center">
+        <ons-icon icon="md-done_outline"></ons-icon>
+      </ons-fab>
     </ons-page>
   </template>
 
