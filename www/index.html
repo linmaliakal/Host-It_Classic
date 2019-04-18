@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
     <link rel="stylesheet" src="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
     <script src="js/index.js"></script>
     <script src="js/login.js"></script>
@@ -69,9 +70,11 @@
   <ons-page>
     <ons-toolbar>
       <div class="center">Host It</div>
-      <p style="margin: 15px 50px 0px;">
-          <ons-button id="googleOutButton" modifier="default" onclick="googleSignOut()">Sign Out</ons-button>
-      </p>
+      <div class="right">
+        <ons-toolbar-button>
+          <ons-icon icon="fa-sign-out"></ons-icon>
+        </ons-toolbar-button>
+      </div>
     </ons-toolbar>
 
     <ons-tabbar swipeable position="auto">
