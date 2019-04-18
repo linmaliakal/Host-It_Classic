@@ -33,4 +33,7 @@
         <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="This app wants to get your location always, even this app runs in background." />
     </plugin>
     <engine name="ios" spec="^5.0.0" />
+    <preference name = "SplashScreen" value = "screen" />
+    <preference name = "SplashScreenDelay" value = "4000" />
+    <preference name = "SplashMaintainAspectRatio" value = "true" />
 </widget>
