@@ -29,14 +29,54 @@
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
-    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <!--<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">-->
+    <link rel="stylesheet" type="text/css" href="css/onsen-css-components.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">-->
     <link rel="stylesheet" src="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/googleSignIn.js"></script>
+    <script src="js/FABbutton.js"></script>
+    <script src="js/pushnext.js"></script>
   </head>
+<ons-navigator navigation="fade" id="myNav" page="login.html" ></ons-navigator>
+<!-- LOGIN PAGE -->
+<!-- to view other pages, comment out login page code -->
+<template id="login.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="center">Host It Login</div>
+    </ons-toolbar>
+
+    <script src="js/login.js"></script>
+    <script src="js/button.js"></script>
+
+    <script src="js/googleSignOut.js"></script>
+    <ons-login>
+      <div style="text-align: center; margin-top: 30px;">
+        <p style="margin: 15px 50px 0px;">
+          <ons-button id="googleButton" modifier="large" onclick="googleSignIn()">
+            Sign In with Google
+          </ons-button>
+        </p>
+      </div>
+    </ons-login>
+
+  </ons-page>
+</template>
+
+  <!-- end of login page code -->
+<template id="app.html">
   <ons-page>
     <ons-toolbar>
       <div class="center">Host It</div>
+      <div class="right">
+        <ons-toolbar-button>
+          <ons-icon icon="fa-sign-out"></ons-icon>
+        </ons-toolbar-button>
+      </div>
     </ons-toolbar>
 
     <ons-tabbar swipeable position="auto">
@@ -48,38 +88,125 @@
       </ons-tab>
     </ons-tabbar>
   </ons-page>
-
+</template>
   <template id="tab1.html">
     <ons-page id="Tab1">
-      <ons-login>
-        <div style="text-align: center; margin-top: 30px;">
-          <p>
-            <ons-input id="username" modifier="underbar" placeholder="Username" float></ons-input>
-          </p>
-          <p>
-            <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
-          </p>
-          <p style="margin-top: 30px;">
-            <ons-button modifier="large" onclick="login()">Sign In</ons-button>
-          </p>
-          <p style="margin-top: 10px;">
-            <ons-button modifier="large" onclick="signup()">Sign Up</ons-button>
-          </p>
-          <p style="margin-top: 10px;">
-            <ons-button modifier="quiet" onclick="passrecovery()">forgot password?</ons-button>
-          </p>
+      <h3 style="text-align: center; margin-top: 10px; font-style: italic;">
+        Hello, Linette <!-- replace Linette with name taken from db for user logged in-->
+      </h3>
+      <p style="opacity: 0.5; font-style: italic; font-size: 10px">
+        ____________________________________________________________ Events This Week
+      </p>
+      <ons-card>
+        <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/11/01/07/game-of-thrones.jpeg" style="width: 100%; opacity: 0.5;">
+        <div class="title" style="text-align: right">
+          GOT Watch-Party!
         </div>
-      </ons-login>
-    </ons-page>
+        <div style="text-align: right; font-style: italic; font-size: 14px">
+          Sunday 14 @ 7PM
+        </div>
+      </ons-card>
+      <ons-card>
+        <div class="title" style="text-align: right">
+          A Fun Event, I Promise.
+        </div>
+        <div style="text-align: right; font-style: italic; font-size: 14px">
+          Friday 26 @ 5PM
+        </div>
+      </ons-card>
+      <p style="opacity: 0.5; font-style: italic; font-size: 10px">
+        ___________________________________________________________________ New Alerts
+      </p>
+      <p style="text-align: center">
+        (User) invited you to an event! <br> <br>
+        (User) invited you to an event! <br> <br>
+        New assigned checklist item! <br> <br>
+      </p>
   </template>
 
   <template id="tab2.html">
     <ons-page id="Tab2">
+      <script src="js/login.js"></script>
+      <!--<script src="js/FABbutton.js"></script>  was used to test FAB functionality mainly-->
+      <script src="js/pushnext.js"></script>
+
+      <p style="text-align: center; margin-top: 10px;">
+        <ons-search-input placeholder="Find an Event" onchange="ons.notification.alert('Searched for: ' + this.value)"></ons-search-input>
+      </p>
+      <p style="opacity: 0.5; font-style: italic; font-size: 10px; text-align: center">
+        April 2019
+      </p>
+      <ons-card>
+        <div class="title" style="text-align: right">
+          GOT Watch-Party!
+        </div>
+        <div style="text-align: right; font-style: italic; font-size: 14px">
+          Sunday 14 @ 7PM
+        </div>
+      </ons-card>
+      <ons-card>
+        <div class="title" style="text-align: right">
+          A Fun Event, I Promise.
+        </div>
+        <div style="text-align: right; font-style: italic; font-size: 14px">
+          Friday 26 @ 5PM
+        </div>
+      </ons-card>
+      <p style="opacity: 0.5; font-style: italic; font-size: 10px; text-align: center">
+        May 2019
+      </p>
+      <p style="opacity: 0.5; font-style: italic; font-size: 10px; text-align: center">
+        ______________________________________________________________________________
+      </p>
+      <p style="opacity: 0.5; font-style: italic; font-size: 10px; text-align: center">
+        June 2019
+      </p>
+      <ons-card>
+        <div class="title" style="text-align: right">
+          Brunch
+        </div>
+        <div style="text-align: right; font-style: italic; font-size: 14px">
+          Saturday 15 @ 11AM
+        </div>
+      </ons-card>
+      <ons-card>
+        <div class="title" style="text-align: right">
+          The Strokes Concert
+        </div>
+        <div style="text-align: right; font-style: italic; font-size: 14px">
+          Friday 19 @ 7PM
+        </div>
+      </ons-card>
+      <ons-fab id="push-button" position="bottom right">
+        <ons-icon icon="md-plus"></ons-icon>
+      </ons-fab>
+      <script>
+        ons.getScriptPage().onInit = function() {
+          console.log('This is a lifecycle hook!', this);
+        };
+      </script>
+    </ons-page>
+  </template>
+
+  <template id="tab3.html">
+    <ons-page id="Tab3">
+      <p style="text-align: center;">
+        This is the people page.
+      </p>
+    </ons-page>
+  </template>
+
+  <!-- Event Instance Page, fill out the form-->
+  <template id="event_instance.html">
+    <ons-page id="Event_Instance">
       <script src="js/checklist.js"></script>
-      <script src="js/button.js"></script>
+      <script src="js/invitelist.js"></script>
       <div style="text-align: right; margin-right: 10px;">
+      <ons-toolbar>
+        <div class="left"><ons-back-button>Cancel</ons-back-button></div>
+      </ons-toolbar>
       <p>
-        <ons-input modifier="underbar" type="text" placeholder="Title of Event" float> </ons-input>
+        <ons-input style="margin-top: 30px" modifier="underbar" type="text" placeholder="Title of Event" float> </ons-input>
       </p>
       </div>
       <div style="text-align: left; margin-left: 10px;">
@@ -95,11 +222,19 @@
       </div>
       <h3>Invite List</h3>
       <!--Invite list-->
-      <p>
-        <label for="new-task">Add invite</label><input id="new-task" type="text"><button>Add</button>
-      </p>
-      <ul id="incomplete-tasks">
-      </ul>
+      <div id="myDIV" class="header">
+  <input type="text" id="myInput" placeholder="Enter name here!">
+  <span onclick="newElement()" class="addBtn">Add</span>
+</div>
+
+<ul id="myUL">
+<!--  <li>Hit the gym</li>
+  <li class="checked">Pay bills</li>
+  <li>Meet George</li>
+  <li>Buy eggs</li>
+  <li>Read a book</li>
+  <li>Organize office</li>-->
+</ul>
       <h3>Task Lists</h3>
       <p>
         <label for="new-task">Add Item</label><input id="new-task" type="text"><button>Add</button>
@@ -114,24 +249,9 @@
       <ul id="completed-tasks">
         <!--Completed task list-->
       </ul>
+    </ons-page>
+  </template>
 
-      <!-- for the FAB, to navigate to the event instance page -->
-      <ons-fab id="push-button" position="bottom right">
-        <ons-icon icon="md-plus"></ons-icon>
-      </ons-fab>
-    </ons-page>
-  </template>
-  <template id="tab3.html">
-    <ons-page id="Tab3">
-    </ons-page>
-  </template>
-  <template id="event_instance.html">
-    <ons-page id="Event_Instance">
-      <p style="text-align: center;">
-        The event instance page/page to make an event.
-      </p>
-    </ons-page>
-  </template>
   <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
   <script>
     // Initialize Firebase
