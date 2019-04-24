@@ -7,7 +7,7 @@ function newEvent() {
   newCard.onclick = function(eventInput){
     navigate.pushPage('refresher.html', { animation : 'slide' });};
   document.getElementById("eventsList").appendChild(newCard);
-  document.getElementById("refreshTitle") = "heya";
+//  document.getElementById("refreshTitle") = "heya";
   alert("Event card titled " + eventInput + " added to Events Page!");
 /*  var navigate = document.getElementById("myNav");
   navigate.pushPage('tab2.html', { animation : 'slide' });
