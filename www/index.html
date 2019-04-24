@@ -137,14 +137,24 @@
         April 2019
       </p>
       <ul id="eventsList">
-      <ons-card onclick="myNav.pushPage('refresher.html', { animation : 'slide' } )">
-      <div style="text-align: right">
+      <script>
+        document.onload(function(){
+        var userId = firebase.auth().currentUser.uid;
+        firebase.database().ref('/user-events/' + userId).once('value').then(function(snapshot) {
+          var data = snapshot.val();
+          for (var key in data) {
+            newEvent(key);
+          }
+        });})
+      </script>
+      <!-- <ons-card onclick="myNav.pushPage('refresher.html', { animation : 'slide' } )">
+       <div style="text-align: right">
           GOT Watch-Party!
         </div>
         <div style="text-align: right; font-style: italic; font-size: 14px">
           Sunday 14 @ 7PM
         </div>
-      </ons-card></ul>
+      </ons-card></ul> -->
       <!--<ons-card>
         <div class="title" style="text-align: right">
           A Fun Event, I Promise.
@@ -194,7 +204,7 @@
         <div class="left"><ons-back-button>Back</ons-back-button></div>
       </ons-toolbar>
       <p style="text-align: center;">
-        This is the placeholder Refresher Page.
+        getUUID(eventUUID).title
       </p>
         <h1 id ="refreshTitle" style = "padding-left: 15px">Words
         </h1>

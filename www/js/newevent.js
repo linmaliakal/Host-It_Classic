@@ -1,8 +1,9 @@
-function newEvent() {
+function newEvent(uniqueUUID) {
   var newCard = document.createElement("ons-card");
   var eventInput = document.getElementById("eventTitle").value;
   var textNode = document.createTextNode(eventInput);
   newCard.appendChild(textNode);
+  newCard.setAttribute("id", uniqueUUID);
   var navigate = document.getElementById("myNav");
   newCard.onclick = function(eventInput){
     navigate.pushPage('refresher.html', { animation : 'slide' });};
