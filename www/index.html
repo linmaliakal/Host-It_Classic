@@ -143,7 +143,7 @@
       <h3 style="text-align: center; margin-top: 10px; font-style: italic;" id="welcomeText">
         Hello, User <!-- replace Linette with name taken from db for user logged in-->
       </h3>
-      <script> 
+      <script>
         var user = firebase.auth().currentUser;
         if (user != null) {
           user.providerData.forEach(function (profile) {
@@ -326,9 +326,9 @@
         function saveEvent() {
           //get information from text fields
           var user = firebase.auth().currentUser;
-          var title = document.querySelector('titleText').value,
-          var location = document.querySelector('locationText').value,
-          var date = document.querySelector('datetimeText').value
+          var title = document.getElementById('titleText').value;
+          var location = document.getElementById('locationText').value;
+          var date = document.getElementById('datetimeText').value;
           //verify all info is valid
           if (user != null && title != null && location != null && date != null) {
             user.providerData.forEach(function (profile) {
