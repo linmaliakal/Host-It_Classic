@@ -14,7 +14,8 @@ function writeNewEvent(uid, username, title, location, date) {
     // Write the new post's data simultaneously in the posts list and the user's post list.
     var updates = {};
     updates['/events/' + newEventKey] = eventData;
-    updates['/user-events/' + uid + '/' + newEventKey] = eventData;
-  
+    updates['/user-events/' + uid + '/' + newEventKey] = 0;
+    //firebase.database().ref().set('/user-events/' + uid );
+
     return firebase.database().ref().update(updates);
 }
