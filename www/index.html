@@ -202,15 +202,15 @@
       <link  href="http://fonts.googleapis.com/css?family=Reenie+Beanie:regular" rel="stylesheet"type="text/css">
       <script src="js/checklist.js"></script>
       <script src="js/invitelist.js"></script>
-      <div style="text-align: right; margin-right: 10px;">
+      <div style="text-align: left; margin-left: 10px;padding-left: 10px">
       <ons-toolbar>
         <div class="left"><ons-back-button>Cancel</ons-back-button></div>
       </ons-toolbar>
       <p>
-        <ons-input style="margin-top: 30px" modifier="underbar" type="text" placeholder="Title of Event" float> </ons-input>
+        <ons-input style="margin-top: 60px" modifier="underbar" type="text" placeholder="Title of Event" float> </ons-input>
       </p>
       </div>
-      <div style="text-align: left; margin-left: 10px;">
+      <div style="text-align: left; margin-left: 10px; padding-left: 10px">
         <p>
           <ons-input modifier="underbar" type="text" placeholder="Location/Address" float> </ons-input>
         </p>
@@ -221,14 +221,15 @@
           <ons-input modifier="underbar" type="text" placeholder="# People Invited" float> </ons-input>
         </p>
       </div>
-      <h3>Invite List</h3>
+      <h3 style ="padding-left: 30px">Invite List</h3>
       <!--Invite list-->
-      <div id="myDIV" class="header">
+      <p style ="padding-left: 40px">Use the list below to keep track of invites!</p>
+      <div id="myDIV" class="header" style ="padding-left: 40px">
   <input type="text" id="myInput" placeholder="Enter name here!">
   <span onclick="newElement()" class="addBtn">Add</span>
 </div>
 
-<ul id="myUL">
+<ul id="myUL" style = "padding-left: 40px">
 <!--  <li>Hit the gym</li>
   <li class="checked">Pay bills</li>
   <li>Meet George</li>
@@ -236,23 +237,26 @@
   <li>Read a book</li>
   <li>Organize office</li>-->
 </ul>
-      <h3>Task Lists</h3>
-      <p>
-        <label for="new-task">Add Item</label><input id="new-task" type="text"><button>Add</button>
+      <h3 style = "padding-left: 30px">Task Lists</h3>
+        <p>
+          <label for="new-task" style = "padding-left: 40px">Add Item</label>
       </p>
+        <p style = "padding-left: 40px">
+          <input id="new-task" type="text" ><button>Add</button>
+        </p>
 
-      <h3>Todo</h3>
+      <h3 style = "padding-left: 40px">Todo</h3>
       <!--Incomplete task list-->
       <ul id="incomplete-tasks">
       </ul>
 
-      <h3>Completed</h3>
+      <h3 style = "padding-left: 40px">Completed</h3>
       <ul id="completed-tasks">
         <!--Completed task list-->
       </ul>
 
-      <h3>Sticky Notes</h3>
-      <ul>
+      <h3 style = "padding-left: 30px">Sticky Notes</h3>
+      <ul id="notes-list">
         <li>
           <a href="#">
             <h4>Title #1</h4>
