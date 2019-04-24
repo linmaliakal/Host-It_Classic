@@ -1,6 +1,20 @@
 function newEvent() {
-  var newPage = document.createElement("template");
-// Add text input
+  var newCard = document.createElement("ons-card");
+  var eventInput = document.getElementById("eventTitle").value;
+  var textNode = document.createTextNode(eventInput);
+  newCard.appendChild(textNode);
+  var navigate = document.getElementById("myNav");
+  newCard.onclick = function(eventInput){
+    navigate.pushPage('refresher.html', { animation : 'slide' });};
+  document.getElementById("eventsList").appendChild(newCard);
+  document.getElementById("refreshTitle") = "heya";
+  alert("Event card titled " + eventInput + " added to Events Page!");
+/*  var navigate = document.getElementById("myNav");
+  navigate.pushPage('tab2.html', { animation : 'slide' });
+elemm.onclick = function() { alert('blah'); };
+document.getElementById("refreshTitle").innerHTML = eventInput;
+  */
+/* Add text input
     var inputValue = document.getElementById("stickyInput").value;
     var textnode = document.createTextNode(inputValue);
     newTask.appendChild(textnode);
@@ -21,5 +35,5 @@ function newEvent() {
       var div = this.parentElement;
       div.style.display = "none";
     }
-  }
+  }*/
 }

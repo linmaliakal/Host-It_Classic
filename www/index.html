@@ -137,8 +137,8 @@
         April 2019
       </p>
       <ul id="eventsList">
-      <ons-card onclick="myNav.pushPage('gameofthrones.html', { animation : 'slide' } )">
-      <div class="title" style="text-align: right">
+      <ons-card onclick="myNav.pushPage('refresher.html', { animation : 'slide' } )">
+      <div style="text-align: right">
           GOT Watch-Party!
         </div>
         <div style="text-align: right; font-style: italic; font-size: 14px">
@@ -181,9 +181,6 @@
       <ons-fab id="push-button" position="bottom right">
         <ons-icon icon="md-plus"></ons-icon>
       </ons-fab>
-      <ons-fab id="event-button" position="bottom left">
-        <ons-icon icon="md-plus"></ons-icon>
-      </ons-fab>
       <script>
         ons.getScriptPage().onInit = function() {
           console.log('This is a lifecycle hook!', this);
@@ -191,14 +188,94 @@
       </script>
     </ons-page>
   </template>
-  <template id="gameofthrones.html">
-    <ons-page id="GOT">
+  <template id="refresher.html">
+    <ons-page id="Refresher PAGE">
       <ons-toolbar>
         <div class="left"><ons-back-button>Back</ons-back-button></div>
       </ons-toolbar>
       <p style="text-align: center;">
-        This is the placeholder Game of Thrones Event.
+        This is the placeholder Refresher Page.
       </p>
+        <h1 id ="refreshTitle" style = "padding-left: 15px">Words
+        </h1>
+        </div>
+        <div style="text-align: left; margin-left: 10px;">
+          <p style = "padding-left: 20px" >
+            <ons-input modifier="underbar" type="text" placeholder="Location/Address" float> </ons-input>
+          </p>
+          <p style = "padding-left: 20px">
+            <ons-input modifier="underbar" type="date" float> </ons-input>
+          </p>
+        </div>
+        <h3 style = "padding-left: 25px">Invite List</h3>
+        <!--Invite list-->
+        <div id="myDIV" class="header" style = "padding-left: 40px" >
+          <input type="text" id="myInput" placeholder="Enter name here!">
+          <ons-button onclick="newElement()" class="addBtn">Add</ons-button>
+        </div>
+
+        <!-- list where new invitees will show up -->
+        <ul id="inviteList" style = "padding-left: 40px"> </ul>
+
+        <h3 style = "padding-left: 25px">Sticky Notes</h3>
+        <!-- list where new stickies will be added ^_^ -->
+        <p style = "padding-left: 40px">
+          <input type="text" id="stickyInput" placeholder="Enter a task for a sticky not here!">
+        </p>
+        <p style = "padding-left: 40px">
+          <ons-button id="newTask" onclick="addTask()">Make New Task</ons-button>
+        </p>
+        <ul target="stickies" id="taskList"> </ul>
+        <style>
+          ul[target="stickies"],li{
+            list-style:none;
+          }
+          ul[target="stickies"]{
+            overflow:hidden;
+          }
+            ul[target="stickies"] li {
+              text-decoration:none;
+              color:#000;
+              background:#ffc;
+              display:block;
+              height:5em;
+              width:5em;
+              padding:.5em;
+              /* Safari & Chrome support for box shadow of post its*/
+              -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+            }
+            ul[target="stickies"] li {
+              margin:1em;
+              float:left;
+              padding-bottom:10px;
+              -webkit-transform:rotate(-6deg);
+              -o-transform:rotate(-6deg);
+              -moz-transform:rotate(-6deg);
+            }
+            ul[target="stickies"] li:nth-child(even) {
+              -o-transform:rotate(4deg);
+              -webkit-transform:rotate(4deg);
+              -moz-transform:rotate(4deg);
+              position:relative;
+              top:5px;
+              background:#cfc;
+            }
+            ul[target="stickies"] li:nth-child(3n) {
+              -o-transform:rotate(-3deg);
+              -webkit-transform:rotate(-3deg);
+              -moz-transform:rotate(-3deg);
+              position:relative;
+              top:-5px;
+              background:#ccf;
+            }
+            ul[target="stickies"] li:nth-child(5n) {
+              -o-transform:rotate(5deg);
+              -webkit-transform:rotate(5deg);
+              -moz-transform:rotate(5deg);
+              position:relative;
+              top:-10px;
+            }
+        </style>
     </ons-page>
   </template>
   <template id="tab3.html">
@@ -216,12 +293,14 @@
 <!--  <script src="js/checklist.js"></script>-->
       <script src="js/tasklist.js"></script>
       <script src="js/invitelist.js"></script>
+      <script src="js/newevent.js"></script>
       <div style="text-align: right; margin-right: 10px;">
       <ons-toolbar>
         <div class="left"><ons-back-button>Cancel</ons-back-button></div>
+        <div class="right"><ons-button id="eventAdder" onclick="newEvent()">New Event</ons-button></div>
       </ons-toolbar>
       <p>
-        <ons-input style="margin-top: 30px" modifier="underbar" type="text" placeholder="Title of Event" float> </ons-input>
+        <ons-input id="eventTitle" style="margin-top: 30px" modifier="underbar" type="text" placeholder="Title of Event" float> </ons-input>
       </p>
       </div>
       <div style="text-align: left; margin-left: 10px;">
@@ -230,9 +309,6 @@
         </p>
         <p style = "padding-left: 20px">
           <ons-input modifier="underbar" type="date" float> </ons-input>
-        </p>
-        <p style = "padding-left: 20px">
-          <ons-input modifier="underbar" type="text" placeholder="# People Invited" float> </ons-input>
         </p>
       </div>
       <h3 style = "padding-left: 25px">Invite List</h3>
