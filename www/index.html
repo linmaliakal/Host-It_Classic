@@ -143,7 +143,7 @@
       <h3 style="text-align: center; margin-top: 10px; font-style: italic;" id="welcomeText">
         Hello, User <!-- replace Linette with name taken from db for user logged in-->
       </h3>
-      <script> 
+      <script>
         var user = firebase.auth().currentUser;
         if (user != null) {
           user.providerData.forEach(function (profile) {
@@ -234,18 +234,18 @@
         <div class="left"><ons-back-button>Cancel</ons-back-button></div>
       </ons-toolbar>
       <p>
-        <ons-input style="margin-top: 30px" modifier="underbar" type="text" placeholder="Title of Event" float> </ons-input>
+          <ons-input id="titleText" style="margin-top: 30px" modifier="underbar" type="text" placeholder="Title of Event" float> </ons-input>
       </p>
       </div>
       <div style="text-align: left; margin-left: 10px;">
         <p style = "padding-left: 20px" >
-          <ons-input modifier="underbar" type="text" placeholder="Location/Address" float> </ons-input>
+          <ons-input id="locationText" modifier="underbar" type="text" placeholder="Location/Address" float> </ons-input>
         </p>
         <p style = "padding-left: 20px">
-          <ons-input modifier="underbar" type="datetime-local" float> </ons-input>
+          <ons-input id="datetimeText" modifier="underbar" type="datetime-local" float> </ons-input>
         </p>
         <p style = "padding-left: 20px">
-          <ons-input modifier="underbar" type="text" placeholder="# People Invited" float> </ons-input>
+          <ons-input id="peopleCount" modifier="underbar" type="text" placeholder="# People Invited" float> </ons-input>
         </p>
       </div>
       <h3 style = "padding-left: 25px">Invite List</h3>
@@ -318,6 +318,35 @@
             top:-10px;
           }
       </style>
+
+      <!-- create event button -->
+      <script src="js/saveEventToDatabase.js"></script>
+      <script>
+        // button click is supposed to run this
+        function saveEvent() {
+          //get information from text fields
+          var user = firebase.auth().currentUser;
+          var title = document.getElementById('titleText').value;
+          var location = document.getElementById('locationText').value;
+          var date = document.getElementById('datetimeText').value;
+          //verify all info is valid
+          if (user != null && title != null && location != null && date != null) {
+            user.providerData.forEach(function (profile) {
+              //call external method that saves info
+              writeNewEvent(profile.uid, profile.displayName, title, location, date);
+            });
+            //let user know it saved
+            console.log("event save function called");
+            alert("Event Saved");
+            //redirect them to home page
+            //here
+          }
+          else {
+            alert("Invalid Event");
+          }
+        }
+      </script>
+      <ons-button onclick="saveEvent()">Create Event</ons-button>
     </ons-page>
   </template>
 </html>
