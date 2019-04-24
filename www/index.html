@@ -136,15 +136,16 @@
       <p style="opacity: 0.5; font-style: italic; font-size: 10px; text-align: center">
         April 2019
       </p>
-      <ons-card>
-        <div class="title" style="text-align: right">
+      <ul id="eventsList">
+      <ons-card onclick="myNav.pushPage('gameofthrones.html', { animation : 'slide' } )">
+      <div class="title" style="text-align: right">
           GOT Watch-Party!
         </div>
         <div style="text-align: right; font-style: italic; font-size: 14px">
           Sunday 14 @ 7PM
         </div>
-      </ons-card>
-      <ons-card>
+      </ons-card></ul>
+      <!--<ons-card>
         <div class="title" style="text-align: right">
           A Fun Event, I Promise.
         </div>
@@ -176,8 +177,11 @@
         <div style="text-align: right; font-style: italic; font-size: 14px">
           Friday 19 @ 7PM
         </div>
-      </ons-card>
+      </ons-card>-->
       <ons-fab id="push-button" position="bottom right">
+        <ons-icon icon="md-plus"></ons-icon>
+      </ons-fab>
+      <ons-fab id="event-button" position="bottom left">
         <ons-icon icon="md-plus"></ons-icon>
       </ons-fab>
       <script>
@@ -187,7 +191,16 @@
       </script>
     </ons-page>
   </template>
-
+  <template id="gameofthrones.html">
+    <ons-page id="GOT">
+      <ons-toolbar>
+        <div class="left"><ons-back-button>Back</ons-back-button></div>
+      </ons-toolbar>
+      <p style="text-align: center;">
+        This is the placeholder Game of Thrones Event.
+      </p>
+    </ons-page>
+  </template>
   <template id="tab3.html">
     <ons-page id="Tab3">
       <p style="text-align: center;">
