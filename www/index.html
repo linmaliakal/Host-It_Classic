@@ -162,7 +162,7 @@
       <p style="opacity: 0.5; font-style: italic; font-size: 10px; text-align: center">
         April 2019
       </p>
-      <ul id="eventsList">
+      <ul id="eventsList"></ul>
       <script>
         document.onload(function(){
         var userId = firebase.auth().currentUser.uid;
@@ -229,11 +229,13 @@
       <ons-toolbar>
         <div class="left"><ons-back-button>Back</ons-back-button></div>
       </ons-toolbar>
-      <p style="text-align: center;">
-        getUUID(eventUUID).title
+      <p id = "eventname" style="text-align: center;">
+      <script>
+        document.getElementById(eventname).innerHTML = firebase.database().ref("events/" + getElementById('ons-card').id).once('title').then(function(snapshot){
+          return snapshot.val();
+        });
+      </script>
       </p>
-        <h1 id ="refreshTitle" style = "padding-left: 15px">Words
-        </h1>
         </div>
         <div style="text-align: left; margin-left: 10px;">
           <p style = "padding-left: 20px" >
@@ -336,7 +338,7 @@
         <div class="right"><ons-button id="eventAdder" onclick="newEvent()">New Event</ons-button></div>
       </ons-toolbar>
       <p>
-          <ons-input id="titleText" style="margin-top: 30px" modifier="underbar" type="text" placeholder="Title of Event" float> </ons-input>
+          <ons-input id="eventTitle" style="margin-top: 30px" modifier="underbar" type="text" placeholder="Title of Event" float> </ons-input>
       </p>
       </div>
       <div style="text-align: left; margin-left: 10px;">
