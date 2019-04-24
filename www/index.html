@@ -226,7 +226,7 @@
   <template id="event_instance.html">
     <ons-page id="Event_Instance">
       <link  href="http://fonts.googleapis.com/css?family=Reenie+Beanie:regular" rel="stylesheet"type="text/css">
-<!--  <script src="js/checklist.js"></script>-->
+  <!--  <script src="js/checklist.js"></script>-->
       <script src="js/tasklist.js"></script>
       <script src="js/invitelist.js"></script>
       <div style="text-align: right; margin-right: 10px;">
@@ -242,13 +242,14 @@
           <ons-input modifier="underbar" type="text" placeholder="Location/Address" float> </ons-input>
         </p>
         <p style = "padding-left: 20px">
-          <ons-input modifier="underbar" type="date" float> </ons-input>
+          <ons-input modifier="underbar" type="datetime-local" float> </ons-input>
         </p>
         <p style = "padding-left: 20px">
           <ons-input modifier="underbar" type="text" placeholder="# People Invited" float> </ons-input>
         </p>
       </div>
       <h3 style = "padding-left: 25px">Invite List</h3>
+
       <!--Invite list-->
       <div id="myDIV" class="header" style = "padding-left: 40px" >
         <input type="text" id="myInput" placeholder="Enter name here!">
