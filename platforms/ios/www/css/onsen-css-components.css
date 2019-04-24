@@ -134,9 +134,8 @@ h4, h5, h6 {
   box-sizing: border-box;
 }
 .page__background {
-  background-color: #3f3f3f;
-  background-color: rgba(63, 63, 63, 1);
-  position: absolute;
+  
+  background: linear-gradient(to top, #3f3f3f 0%, #657895 100%);  position: absolute;
   top: 0;
   left: 0;
   right: 0;
