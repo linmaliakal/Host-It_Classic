@@ -212,31 +212,35 @@
       </p>
       </div>
       <div style="text-align: left; margin-left: 10px;">
-        <p>
+        <p style = "padding-left: 20px" >
           <ons-input modifier="underbar" type="text" placeholder="Location/Address" float> </ons-input>
         </p>
-        <p>
+        <p style = "padding-left: 20px">
           <ons-input modifier="underbar" type="date" float> </ons-input>
         </p>
-        <p>
+        <p style = "padding-left: 20px">
           <ons-input modifier="underbar" type="text" placeholder="# People Invited" float> </ons-input>
         </p>
       </div>
-      <h3>Invite List</h3>
+      <h3 style = "padding-left: 25px">Invite List</h3>
       <!--Invite list-->
-      <div id="myDIV" class="header">
+      <div id="myDIV" class="header" style = "padding-left: 40px" >
         <input type="text" id="myInput" placeholder="Enter name here!">
-        <span onclick="newElement()" class="addBtn">Add</span>
+        <ons-button onclick="newElement()" class="addBtn">Add</ons-button>
       </div>
 
       <!-- list where new invitees will show up -->
-      <ul id="inviteList"> </ul>
+      <ul id="inviteList" style = "padding-left: 40px"> </ul>
 
-      <h3>Sticky Notes</h3>
+      <h3 style = "padding-left: 25px">Sticky Notes</h3>
       <!-- list where new stickies will be added ^_^ -->
+      <p style = "padding-left: 40px">
+        <input type="text" id="stickyInput" placeholder="Enter a task for a sticky not here!">
+      </p>
+      <p style = "padding-left: 40px">
+        <ons-button id="newTask" onclick="addTask()">Make New Task</ons-button>
+      </p>
       <ul target="stickies" id="taskList"> </ul>
-      <input type="text" id="stickyInput" placeholder="Enter a task for a sticky not here!">
-      <ons-button id="newTask" onclick="addTask()">Make New Task</ons-button>
       <style>
         ul[target="stickies"],li{
           list-style:none;
