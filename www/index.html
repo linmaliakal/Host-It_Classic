@@ -137,7 +137,7 @@
 -->
   <template id="tab2.html">
     <ons-page id="Tab2">
-      <script src="js/login.js"></script>
+      <!-- <script src="js/login.js"></script> -->
       <!--<script src="js/FABbutton.js"></script>  was used to test FAB functionality mainly-->
       <script src="js/pushnext.js"></script>
       <h3 style="text-align: center; margin-top: 10px; font-style: italic;" id="welcomeText">
@@ -163,15 +163,35 @@
         April 2019
       </p>
       <ul id="eventsList"></ul>
+      <script src="js/newevent.js"></script>
       <script>
-        document.onload(function(){
-        var userId = firebase.auth().currentUser.uid;
-        firebase.database().ref('/user-events/' + userId).once('value').then(function(snapshot) {
-          var data = snapshot.val();
-          for (var key in data) {
-            newEvent(key);
+        document.addEventListener('init', function(event) {
+        if (event.target.matches('#Tab2')) {
+          console.log("document loaded");
+          //load user UUID
+          var user = firebase.auth().currentUser;
+          var UUID = "";
+          if (user != null) {
+            user.providerData.forEach(function (profile) {
+              UUID = profile.uid;
+            });
           }
-        });})
+          console.log(UUID);
+          firebase.database().ref('/user-events/' + UUID).once('value').then(function(snapshot) {
+            var data = snapshot.val();
+            console.log(data);
+            for (var key in data) {
+              console.log(key);
+              var eventData;
+              firebase.database().ref('/events/' + key).once('value').then(function(snapshot2) {
+                console.log(snapshot2.val());
+                eventData = snapshot2.val();
+              })
+              console.log(eventData);
+              newEvent(eventData);
+            }
+          })     
+        }}, false);
       </script>
       <!-- <ons-card onclick="myNav.pushPage('refresher.html', { animation : 'slide' } )">
        <div style="text-align: right">
