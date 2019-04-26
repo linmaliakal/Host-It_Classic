@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
     <script src="js/index.js"></script>
-    <script src="js/login.js"></script>
+<!--    <script src="js/login.js"></script>-->
     <script src="js/googleSignIn.js"></script>
     <script src="js/FABbutton.js"></script>
     <script src="js/pushnext.js"></script>
@@ -229,9 +229,11 @@
       <ons-toolbar>
         <div class="left"><ons-back-button>Back</ons-back-button></div>
       </ons-toolbar>
-      <p id = "eventname" style="text-align: center;">
+      <p class = "text" id = "eventname" style="text-align: center;"> Banana
       <script>
-        document.getElementById(eventname).innerHTML = firebase.database().ref("events/" + getElementById('ons-card').id).once('title').then(function(snapshot){
+    /*  document.getElementById("eventname").innerHTML = "Hello";*/
+        var pageTitle = document.getElementById("eventname");
+        pageTitle.innerHTML = firebase.database().ref("events/" + document.getElementsByTagName('ons-card').id).once('title').then(function(snapshot){
           return snapshot.val();
         });
       </script>
@@ -450,7 +452,8 @@
           }
         }
       </script>
-      <ons-button onclick="saveEvent()">Create Event</ons-button>
+<!--      Commented out old new event button
+          <ons-button onclick="saveEvent()">Create Event</ons-button>-->
     </ons-page>
   </template>
 </html>
