@@ -6,10 +6,12 @@ function newEvent(eventData) {
   newCard.appendChild(document.createTextNode(eventData.date));
   newCard.setAttribute("id", "eventData.uid");
   var navigate = document.getElementById("myNav");
-  newCard.onclick = function(eventTitle){
+  newCard.onclick = function(eventData){
     navigate.pushPage('refresher.html', { 
       data : {
-        title: 'example'
+        title: eventData.title,
+        location: eventData.location,
+        owner: eventData.owner,
       },
       animation : 'slide' });
   };
