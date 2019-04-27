@@ -176,21 +176,29 @@
     </ons-page>
   </template>
   <template id="refresher.html">
-    <ons-page id="Refresher PAGE">
+    <ons-page id="RefresherPage">
+      <script>
+          document.addEventListener('show', function(event) {
+            if (event.target.matches('#RefresherPage')) {
+              console.log('helloooooooooooooooo');
+              console.log(event.target.data.other);
+            };
+            document.getElementById("eventname").innerHTML =
+              event.target.data.title;
+            document.getElementById("location").innerHTML =
+              event.target.data.location;
+            document.getElementById("date").innerHTML =
+              event.target.data.date;
+          });
+      </script>
       <ons-toolbar>
         <div class="left"><ons-back-button>Back</ons-back-button></div>
       </ons-toolbar>
-      <p class = "text" id = "eventname" style="text-align: center;">
-        navigate.topPage.data
-      </p>
+      <p id = "eventname" style="text-align: center;"></p>
       </div>
-        <div style="text-align: left; margin-left: 10px;">
-          <p style = "padding-left: 20px" >
-            location
-          </p>
-          <p style = "padding-left: 20px">
-            date
-          </p>
+        <div style="text-align: left; margin-left: 10px;padding-left: 20px;">
+          <p id = "location"></p>
+          <p id = "date"></p>
       </div>
       <h3 style = "padding-left: 25px">Invite List</h3>
 
