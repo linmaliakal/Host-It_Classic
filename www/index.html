@@ -129,7 +129,7 @@
       <p style="opacity: 0.5; font-style: italic; font-size: 10px; text-align: center">
         April 2019
       </p>
-      <ul id="eventsList"></ul>
+      <ul id="eventsList" style = "width: 70%; margin: auto;"></ul>
       <script src="js/newevent.js"></script>
       <script>
         document.addEventListener('show', function(event) {
@@ -160,7 +160,7 @@
                   newEvent(snapshot2.val());
                 })
               }
-            })     
+            })
           }
         }, false);
       </script>
@@ -194,11 +194,11 @@
       <ons-toolbar>
         <div class="left"><ons-back-button>Back</ons-back-button></div>
       </ons-toolbar>
-      <p id = "eventname" style="text-align: center;"></p>
+      <h1 id = "eventname" style="text-align: center;"></h1>
       </div>
         <div style="text-align: left; margin-left: 10px;padding-left: 20px;">
-          <p id = "location"></p>
-          <p id = "date"></p>
+          <h2 id = "location"></h2>
+          <h2 id = "date"></h2>
       </div>
       <h3 style = "padding-left: 25px">Invite List</h3>
 

@@ -5,10 +5,9 @@ function newEvent(eventData) {
   var eventLocation = eventData.location;
   var eventDate = eventData.date;
   var eventOwner = eventData.owner;
-
-  var textNode = document.createTextNode(eventTitle);
+  var textNode = document.createTextNode(eventTitle + " ");
   newCard.appendChild(textNode);
-  newCard.appendChild(document.createTextNode(eventData.date));
+  newCard.appendChild(document.createTextNode("(" + eventData.date + ")"));
   newCard.setAttribute("id", "eventData.uid");
   var navigate = document.getElementById("myNav");
   newCard.onclick = function(eventData){
