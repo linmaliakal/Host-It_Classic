@@ -184,11 +184,8 @@
               console.log(key);
               var eventData;
               firebase.database().ref('/events/' + key).once('value').then(function(snapshot2) {
-                console.log(snapshot2.val());
-                eventData = snapshot2.val();
+                newEvent(snapshot2.val());
               })
-              console.log(eventData);
-              newEvent(eventData);
             }
           })     
         }}, false);
