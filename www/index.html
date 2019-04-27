@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
     <script src="js/index.js"></script>
-    <script src="js/login.js"></script>
+<!--    <script src="js/login.js"></script>-->
     <script src="js/googleSignIn.js"></script>
     <script src="js/FABbutton.js"></script>
     <script src="js/pushnext.js"></script>
@@ -113,42 +113,9 @@
     </ons-tabbar>
   </ons-page>
 </template>
-<!--  <template id="tab1.html">
-    <ons-page id="Tab1">
-
-      <p style="opacity: 0.5; font-style: italic; font-size: 10px">
-        ____________________________________________________________ Events This Week
-      </p>
-      <ons-card>
-        <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/11/01/07/game-of-thrones.jpeg" style="width: 100%; opacity: 0.5;">
-        <div class="title" style="text-align: right">
-          GOT Watch-Party!
-        </div>
-        <div style="text-align: right; font-style: italic; font-size: 14px">
-          Sunday 14 @ 7PM
-        </div>
-      </ons-card>
-      <ons-card>
-        <div class="title" style="text-align: right">
-          A Fun Event, I Promise.
-        </div>
-        <div style="text-align: right; font-style: italic; font-size: 14px">
-          Friday 26 @ 5PM
-        </div>
-      </ons-card>
-      <p style="opacity: 0.5; font-style: italic; font-size: 10px">
-        ___________________________________________________________________ New Alerts
-      </p>
-      <p style="text-align: center">
-        (User) invited you to an event! <br> <br>
-        (User) invited you to an event! <br> <br>
-        New assigned checklist item! <br> <br>
-      </p>
-  </template>
--->
   <template id="tab2.html">
     <ons-page id="Tab2">
-      <script src="js/login.js"></script>
+      <!-- <script src="js/login.js"></script> -->
       <!--<script src="js/FABbutton.js"></script>  was used to test FAB functionality mainly-->
       <script src="js/pushnext.js"></script>
       <h3 style="text-align: center; margin-top: 10px; font-style: italic;" id="welcomeText">
@@ -166,65 +133,49 @@
             document.getElementById("welcomeText").innerText = "Hello, " + profile.displayName;
           });
         }
-        </script>
+      </script>
       <p style="text-align: center; margin-top: 10px;">
         <ons-search-input placeholder="Find an Event" onchange="ons.notification.alert('Searched for: ' + this.value)"></ons-search-input>
       </p>
       <p style="opacity: 0.5; font-style: italic; font-size: 10px; text-align: center">
         April 2019
       </p>
-      <ul id="eventsList"></ul>
+      <ul id="eventsList" style = "width: 70%; margin: auto;"></ul>
+      <script src="js/newevent.js"></script>
       <script>
-        document.onload(function(){
-        var userId = firebase.auth().currentUser.uid;
-        firebase.database().ref('/user-events/' + userId).once('value').then(function(snapshot) {
-          var data = snapshot.val();
-          for (var key in data) {
-            newEvent(key);
+        document.addEventListener('show', function(event) {
+          if (event.target.matches('#Tab2')) {
+            console.log("document loaded");
+            var list = document.getElementById('eventsList');
+            while(list.hasChildNodes()){
+              while( list.firstChild ){
+                list.removeChild( list.firstChild );
+              }
+            }
+            //load user UUID
+            var user = firebase.auth().currentUser;
+            var UUID = "";
+            if (user != null) {
+              user.providerData.forEach(function (profile) {
+                UUID = profile.uid;
+              });
+            }
+            console.log(UUID);
+            firebase.database().ref('/user-events/' + UUID).once('value').then(function(snapshot) {
+              var data = snapshot.val();
+              console.log(data);
+              for (var key in data) {
+                console.log(key);
+                var eventData;
+                firebase.database().ref('/events/' + key).once('value').then(function(snapshot2) {
+                  newEvent(snapshot2.val());
+                })
+              }
+            })
           }
-        });})
+        }, false);
       </script>
-      <!-- <ons-card onclick="myNav.pushPage('refresher.html', { animation : 'slide' } )">
-       <div style="text-align: right">
-          GOT Watch-Party!
-        </div>
-        <div style="text-align: right; font-style: italic; font-size: 14px">
-          Sunday 14 @ 7PM
-        </div>
-      </ons-card></ul> -->
-      <!--<ons-card>
-        <div class="title" style="text-align: right">
-          A Fun Event, I Promise.
-        </div>
-        <div style="text-align: right; font-style: italic; font-size: 14px">
-          Friday 26 @ 5PM
-        </div>
-      </ons-card>
-      <p style="opacity: 0.5; font-style: italic; font-size: 10px; text-align: center">
-        May 2019
-      </p>
-      <p style="opacity: 0.5; font-style: italic; font-size: 10px; text-align: center">
-        ______________________________________________________________________________
-      </p>
-      <p style="opacity: 0.5; font-style: italic; font-size: 10px; text-align: center">
-        June 2019
-      </p>
-      <ons-card>
-        <div class="title" style="text-align: right">
-          Brunch
-        </div>
-        <div style="text-align: right; font-style: italic; font-size: 14px">
-          Saturday 15 @ 11AM
-        </div>
-      </ons-card>
-      <ons-card>
-        <div class="title" style="text-align: right">
-          The Strokes Concert
-        </div>
-        <div style="text-align: right; font-style: italic; font-size: 14px">
-          Friday 19 @ 7PM
-        </div>
-      </ons-card>-->
+
       <ons-fab id="push-button" position="bottom right">
         <ons-icon icon="md-plus"></ons-icon>
       </ons-fab>
@@ -236,95 +187,100 @@
     </ons-page>
   </template>
   <template id="refresher.html">
-    <ons-page id="Refresher PAGE">
+    <ons-page id="RefresherPage">
+      <script>
+          document.addEventListener('show', function(event) {
+            if (event.target.matches('#RefresherPage')) {
+              console.log('helloooooooooooooooo');
+              console.log(event.target.data.other);
+            };
+            document.getElementById("eventname").innerHTML =
+              event.target.data.title;
+            document.getElementById("location").innerHTML =
+              event.target.data.location;
+            document.getElementById("date").innerHTML =
+              event.target.data.date;
+          });
+      </script>
       <ons-toolbar>
         <div class="left"><ons-back-button>Back</ons-back-button></div>
       </ons-toolbar>
-      <p id = "eventname" style="text-align: center;">
-      <script>
-        document.getElementById(eventname).innerHTML = firebase.database().ref("events/" + getElementById('ons-card').id).once('title').then(function(snapshot){
-          return snapshot.val();
-        });
-      </script>
+      <h1 id = "eventname" style="text-align: center;"></h1>
+      </div>
+        <div style="text-align: left; margin-left: 10px;padding-left: 20px;">
+          <h2 id = "location"></h2>
+          <h2 id = "date"></h2>
+      </div>
+      <h3 style = "padding-left: 25px">Invite List</h3>
+
+      <!--Invite list-->
+      <div id="myDIV" class="header" style = "padding-left: 40px" >
+        <input type="text" id="myInput" placeholder="Enter name here!">
+        <ons-button onclick="newElement()" class="addBtn">Add</ons-button>
+      </div>
+
+      <!-- list where new invitees will show up -->
+      <ul id="inviteList" style = "padding-left: 40px"> </ul>
+
+      <h3 style = "padding-left: 25px">Sticky Notes</h3>
+      <!-- list where new stickies will be added ^_^ -->
+      <p style = "padding-left: 40px">
+        <input type="text" id="stickyInput" placeholder="Enter a task for a sticky not here!">
       </p>
-        </div>
-        <div style="text-align: left; margin-left: 10px;">
-          <p style = "padding-left: 20px" >
-            <ons-input modifier="underbar" type="text" placeholder="Location/Address" float> </ons-input>
-          </p>
-          <p style = "padding-left: 20px">
-            <ons-input modifier="underbar" type="date" float> </ons-input>
-          </p>
-        </div>
-        <h3 style = "padding-left: 25px">Invite List</h3>
-        <!--Invite list-->
-        <div id="myDIV" class="header" style = "padding-left: 40px" >
-          <input type="text" id="myInput" placeholder="Enter name here!">
-          <ons-button onclick="newElement()" class="addBtn">Add</ons-button>
-        </div>
-
-        <!-- list where new invitees will show up -->
-        <ul id="inviteList" style = "padding-left: 40px"> </ul>
-
-        <h3 style = "padding-left: 25px">Sticky Notes</h3>
-        <!-- list where new stickies will be added ^_^ -->
-        <p style = "padding-left: 40px">
-          <input type="text" id="stickyInput" placeholder="Enter a task for a sticky not here!">
-        </p>
-        <p style = "padding-left: 40px">
-          <ons-button id="newTask" onclick="addTask()">Make New Task</ons-button>
-        </p>
-        <ul target="stickies" id="taskList"> </ul>
-        <style>
-          ul[target="stickies"],li{
-            list-style:none;
+      <p style = "padding-left: 40px">
+        <ons-button id="newTask" onclick="addTask()">Make New Task</ons-button>
+      </p>
+      <ul target="stickies" id="taskList"> </ul>
+      <style>
+        ul[target="stickies"],li{
+          list-style:none;
+        }
+        ul[target="stickies"]{
+          overflow:hidden;
+        }
+          ul[target="stickies"] li {
+            text-decoration:none;
+            color:#000;
+            background:#ffc;
+            display:block;
+            height:5em;
+            width:5em;
+            padding:.5em;
+            /* Safari & Chrome support for box shadow of post its*/
+            -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
           }
-          ul[target="stickies"]{
-            overflow:hidden;
+          ul[target="stickies"] li {
+            margin:1em;
+            float:left;
+            padding-bottom:10px;
+            -webkit-transform:rotate(-6deg);
+            -o-transform:rotate(-6deg);
+            -moz-transform:rotate(-6deg);
           }
-            ul[target="stickies"] li {
-              text-decoration:none;
-              color:#000;
-              background:#ffc;
-              display:block;
-              height:5em;
-              width:5em;
-              padding:.5em;
-              /* Safari & Chrome support for box shadow of post its*/
-              -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-            }
-            ul[target="stickies"] li {
-              margin:1em;
-              float:left;
-              padding-bottom:10px;
-              -webkit-transform:rotate(-6deg);
-              -o-transform:rotate(-6deg);
-              -moz-transform:rotate(-6deg);
-            }
-            ul[target="stickies"] li:nth-child(even) {
-              -o-transform:rotate(4deg);
-              -webkit-transform:rotate(4deg);
-              -moz-transform:rotate(4deg);
-              position:relative;
-              top:5px;
-              background:#cfc;
-            }
-            ul[target="stickies"] li:nth-child(3n) {
-              -o-transform:rotate(-3deg);
-              -webkit-transform:rotate(-3deg);
-              -moz-transform:rotate(-3deg);
-              position:relative;
-              top:-5px;
-              background:#ccf;
-            }
-            ul[target="stickies"] li:nth-child(5n) {
-              -o-transform:rotate(5deg);
-              -webkit-transform:rotate(5deg);
-              -moz-transform:rotate(5deg);
-              position:relative;
-              top:-10px;
-            }
-        </style>
+          ul[target="stickies"] li:nth-child(even) {
+            -o-transform:rotate(4deg);
+            -webkit-transform:rotate(4deg);
+            -moz-transform:rotate(4deg);
+            position:relative;
+            top:5px;
+            background:#cfc;
+          }
+          ul[target="stickies"] li:nth-child(3n) {
+            -o-transform:rotate(-3deg);
+            -webkit-transform:rotate(-3deg);
+            -moz-transform:rotate(-3deg);
+            position:relative;
+            top:-5px;
+            background:#ccf;
+          }
+          ul[target="stickies"] li:nth-child(5n) {
+            -o-transform:rotate(5deg);
+            -webkit-transform:rotate(5deg);
+            -moz-transform:rotate(5deg);
+            position:relative;
+            top:-10px;
+          }
+      </style>
     </ons-page>
   </template>
   <template id="tab3.html">
@@ -346,7 +302,7 @@
       <div style="text-align: right; margin-right: 10px;">
       <ons-toolbar>
         <div class="left"><ons-back-button>Cancel</ons-back-button></div>
-        <div class="right"><ons-button id="eventAdder" onclick="newEvent()">New Event</ons-button></div>
+        <div class="right"><ons-button id="eventAdder" onclick="saveEvent()">New Event</ons-button></div>
       </ons-toolbar>
       <p>
           <ons-input id="eventTitle" style="margin-top: 30px" modifier="underbar" type="text" placeholder="Title of Event" float> </ons-input>
@@ -441,7 +397,7 @@
         function saveEvent() {
           //get information from text fields
           var user = firebase.auth().currentUser;
-          var title = document.getElementById('titleText').value;
+          var title = document.getElementById('eventTitle').value;
           var location = document.getElementById('locationText').value;
           var date = document.getElementById('datetimeText').value;
           //verify all info is valid
@@ -461,7 +417,8 @@
           }
         }
       </script>
-      <ons-button onclick="saveEvent()">Create Event</ons-button>
+<!--      Commented out old new event button
+          <ons-button onclick="saveEvent()">Create Event</ons-button>-->
     </ons-page>
   </template>
 </html>

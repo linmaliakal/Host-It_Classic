@@ -1,40 +1,26 @@
-function newEvent(uniqueUUID) {
+function newEvent(eventData) {
   var newCard = document.createElement("ons-card");
-  var eventInput = document.getElementById("eventTitle").value;
-  var textNode = document.createTextNode(eventInput);
+  //things
+  var eventTitle = eventData.title;
+  var eventLocation = eventData.location;
+  var eventDate = eventData.date;
+  var eventOwner = eventData.owner;
+  var textNode = document.createTextNode(eventTitle + " ");
   newCard.appendChild(textNode);
-  newCard.setAttribute("id", uniqueUUID);
+  newCard.appendChild(document.createTextNode("(" + eventData.date + ")"));
+  newCard.setAttribute("id", "eventData.uid");
   var navigate = document.getElementById("myNav");
-  newCard.onclick = function(eventInput){
-    navigate.pushPage('refresher.html', { animation : 'slide' });};
+  newCard.onclick = function(eventData){
+    var options = {
+      data: {
+        title: eventTitle,
+        location: eventLocation,
+        date: eventDate,
+        owner: eventOwner
+      },
+      animation: 'slide'
+      };
+    navigate.pushPage('refresher.html', options);
+  }
   document.getElementById("eventsList").appendChild(newCard);
-//  document.getElementById("refreshTitle") = "heya";
-  alert("Event card titled " + eventInput + " added to Events Page!");
-/*  var navigate = document.getElementById("myNav");
-  navigate.pushPage('tab2.html', { animation : 'slide' });
-elemm.onclick = function() { alert('blah'); };
-document.getElementById("refreshTitle").innerHTML = eventInput;
-  */
-/* Add text input
-    var inputValue = document.getElementById("stickyInput").value;
-    var textnode = document.createTextNode(inputValue);
-    newTask.appendChild(textnode);
-    var closeButton = document.createElement("SPAN");
-    var text = document.createTextNode(" \u00D7");
-    closeButton.className = "close";
-    closeButton.appendChild(text);
-    newTask.appendChild(closeButton);
-    if (inputValue === "") {
-      alert("You must include a task item!");
-    } else {
-      document.getElementById("taskList").appendChild(newTask);
-    }
-  var close2 = document.getElementsByClassName("close");
-  var i;
-  for (i = 0; i < close2.length; i++) {
-    close2[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
-  }*/
 }
