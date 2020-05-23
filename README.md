@@ -6,6 +6,6 @@ Why use multiple post-its on every surface you have to keep track of things you 
 Open up our link in the description on your phone.
 <br>
 Otherwise, download the repository and run these commands: <br>
-npm install -g cordova-simulate (only need to do this once)<br> 
-simulate ios --target=chrome (do every time you want to run the project) <br>
+`npm install -g cordova-simulate` (only need to do this once)<br> 
+`simulate ios --target=chrome` (do every time you want to run the project) <br>
 The simulator allows you to run the project on localhost. 
